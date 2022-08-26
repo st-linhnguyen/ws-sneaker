@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter} from 'react-router-dom';
+import {Provider} from '@shopify/app-bridge-react';
+
+import appRoutes from './app.routes'
+import { RouterOutlet } from './core/custom-router-dom/RouterOutlet';
+import Home from './pages/Home';
 
 function App() {
+  const config = {
+    apiKey: 'f08b10f58ef2245137ca780ad2ee8e25',
+    host: 'd3NzbmVha2VyLm15c2hvcGlmeS5jb20vYWRtaW4'
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider config={ config }>
+      {/* <RouterOutlet routes={ appRoutes }/> */}
+      <Home />
+    </Provider>
   );
 }
 
